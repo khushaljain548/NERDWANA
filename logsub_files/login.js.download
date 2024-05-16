@@ -1,0 +1,94 @@
+console.clear();
+
+const loginBtn = document.getElementById('login');
+const signupBtn = document.getElementById('signup');
+const signupForm = document.querySelector('.signup');
+const loginForm = document.querySelector('.login');
+
+// Disable sign-up button by default
+signupBtn.disabled = true;
+
+loginBtn.addEventListener('click', () => {
+    signupForm.classList.add('slide-up');
+    loginForm.classList.remove('slide-up');
+    // Enable sign-up button when switching to login mode
+    signupBtn.disabled = false;
+    // Disable login button
+    loginBtn.disabled = true;
+});
+
+signupBtn.addEventListener('click', () => {
+    signupForm.classList.remove('slide-up');
+    loginForm.classList.add('slide-up');
+    // Disable sign-up button when switching to sign-up mode
+    signupBtn.disabled = true;
+    // Enable login button
+    loginBtn.disabled = false;
+});
+
+// Function to validate if username is empty
+function isUsernameEmpty(username) {
+    return username.trim() === '';
+}
+
+// Function to validate if username has blank spaces
+function hasBlankSpaces(username) {
+    return /\s/.test(username);
+}
+
+// Function to validate email
+function isValidEmail(email) {
+    // Basic email validation regex
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+function isValidPassword(password) {
+    // Password should be alphanumeric with at least one uppercase letter and one special character
+    return /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9\s])/.test(password);
+}
+// Function to handle sign-up form submission
+function handleSignup() {
+    const username = document.getElementById('username').value.trim(); // Trim whitespace
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    // Check if username is empty
+    if (isUsernameEmpty(username)) {
+        alert('Please enter a username.');
+        return;
+    }
+
+    // Check if username has blank spaces
+    if (hasBlankSpaces(username)) {
+        alert('Username should not contain blank spaces.');
+        return;
+    }
+
+    // Validate email
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // Check if password is empty
+    if (password.trim() === '') {
+        alert('Please enter a password.');
+        return;
+    }
+
+    // Validate password
+    if (!isValidPassword(password)) {
+        alert('Password should be alphanumeric with at least one special character.');
+        return;
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+        alert('Passwords do not match.');
+        return;
+    }
+
+    // If all validations pass, proceed with form submission
+    // Your form submission code goes here...
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .page-container {
+            position: relative;
+            min-height: 100vh;
+        }
+        .content-wrap {
+            padding-bottom: 2.5rem;    /* Footer height */
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .capsule {
+            display: flex;
+            border: 2px solid black;
+            border-radius: 50px;
+            padding: 20px;
+            margin: 20px;
+            width: 200px;
+        }
+        .capsule img {
+            height: 100px;
+            width: 100px;
+        }
+        .capsule div {
+            margin-left: 10px;
+        }
+        header, footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 2.5rem;            /* Footer height */
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="content-wrap">
+            <header>
+                <h1>Welcome to My Homepage</h1>
+            </header>
+            <div class="container">
+                <div class="capsule">
+                    <img src="https://cdn.dribbble.com/userupload/12609824/file/original-0ebf1e6c9a64bfe1510cf8d72de99185.gif" alt="Image">
+                    <div>
+                        <h2>Title</h2>
+                        <p>Some content here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>Copyright © 2024</p>
+        </footer>
+    </div>
+</body>
+</html>
+
